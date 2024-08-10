@@ -6,7 +6,14 @@
         "jsx": "react",
         "lib": ["DOM"],
         "allowSyntheticDefaultImports": true,
-        "strict": true
+        "strict": true,
+        "baseUrl": "./",
+        "paths": {
+            "@pages/*":["src/pages/*"],
+            "@components": ["src/components"],
+            "@utils":["src/utils"],
+            "@hooks":["src/hooks"]
+        }
     },
     "include": ["./src/**/*"]
 }

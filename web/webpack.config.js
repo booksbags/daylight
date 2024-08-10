@@ -1,14 +1,20 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
-    entry: path.resolve("./src/index.tsx"),
+    entry: path.resolve(__dirname, "./src/index.tsx"),
     mode:"development",
     resolve:{
-        extensions:[".ts", ".tsx", ".json", ".js", ".jsx"]
+        extensions:[".ts", ".tsx", ".json", ".js", ".jsx"],
+        alias:{
+            "@pages":path.resolve(__dirname, "./src/pages"),
+            "@components": path.resolve(__dirname, "./src/components"),
+            "@utils":path.resolve(__dirname, "./src/utils"),
+            "@hooks":path.resolve(__dirname, "./src/hooks")
+        }
     },
     output:{
-        path: path.resolve("./output"),
-        filename: "[filename].[chunk:5].js",
+        path: path.resolve(__dirname, "./output"),
+        filename: "[name].[chunkhash:5].js",
         publicPath: "/"
     },
     module:{
@@ -21,11 +27,12 @@ module.exports = {
     },
     plugins:[
         new HTMLWebpackPlugin({
-            template: path.resolve("./public/index.html")
+            template: path.resolve(__dirname, "./public/index.html")
         })
     ],
     devServer:{
-        port:8089
+        port:8089,
+        historyApiFallback:true
     },
     stats: "minimal"
 }
