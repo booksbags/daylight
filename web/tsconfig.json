@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "ES2015",
+        "moduleResolution": "Node",
+        "jsx": "react",
+        "lib": ["DOM"],
+        "allowSyntheticDefaultImports": true,
+        "strict": true
+    },
+    "include": ["./src/**/*"]
+}
