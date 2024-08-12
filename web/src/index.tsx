@@ -1,6 +1,10 @@
 import React from "react"
 import {createRoot} from "react-dom/client";
 import App from "./app";
+import "./global/initCss.css";
+import { init } from "@utils/getDatabase";
+
+init("daylight", 1.0);
 
 const rootEle = document.querySelector("#root")!;
 

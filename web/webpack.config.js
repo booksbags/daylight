@@ -3,13 +3,16 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     entry: path.resolve(__dirname, "./src/index.tsx"),
     mode:"development",
+    devtool: "source-map",
     resolve:{
         extensions:[".ts", ".tsx", ".json", ".js", ".jsx"],
         alias:{
             "@pages":path.resolve(__dirname, "./src/pages"),
             "@components": path.resolve(__dirname, "./src/components"),
             "@utils":path.resolve(__dirname, "./src/utils"),
-            "@hooks":path.resolve(__dirname, "./src/hooks")
+            "@hooks":path.resolve(__dirname, "./src/hooks"),
+            "@style":path.resolve(__dirname, "./src/style"),
+            "src":path.resolve(__dirname, "./src"),
         }
     },
     output:{
@@ -22,7 +25,10 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 use:["babel-loader"]
-            },
+            },{
+                test: /\.css$/,
+                use:["style-loader", "css-loader"]
+            }
         ]
     },
     plugins:[

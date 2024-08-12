@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+}
+h1, h2, h3, h4, h5{
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+}
+input:focus{
+    outline:none;
+}
+
+button{
+    font-size: 14px;
+    padding: 0.5em 4em;
+    border-radius: 5px;
+    background-color: #008c8c;
+    box-shadow: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

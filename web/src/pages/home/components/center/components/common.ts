@@ -1,0 +1,1 @@
+export const leftWidth = "15vw";

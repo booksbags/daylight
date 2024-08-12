@@ -1,10 +1,14 @@
 import React from 'react'
+import { HomeStyle } from './style'
+import Top from './components/top'
+import Center from './components/center'
 
 const Home = () => {
   return (
-    <div>
-      home
-    </div>
+    <HomeStyle>
+      <Top></Top>
+      <Center></Center>
+    </HomeStyle>
   )
 }
 
