@@ -4,7 +4,9 @@ import { DailyStyle } from './style'
 const Daily = () => {
   return (
     <DailyStyle>
-      <textarea></textarea>
+      <textarea
+        rows={10}
+      ></textarea>
     </DailyStyle>
   )
 }
