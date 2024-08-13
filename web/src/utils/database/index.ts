@@ -10,7 +10,7 @@ const storeList = [
 function init(db:IDBDatabase, isCreate:boolean=false){
     storeList.forEach((create)=>{
         new create(db, isCreate);
-    })
+    });
 }
 
 export class Database {
@@ -36,4 +36,7 @@ export class Database {
             });
         })
     };
+    public getDb(){
+        return this._db;
+    }
 }
