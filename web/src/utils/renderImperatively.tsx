@@ -27,7 +27,7 @@ export function renderImperatively(ele:ReactElement){
             unmount();
         },
         replace:(ele:ReactElement)=>{
-            ref.current!.replace(ele);
+            ref.current?.replace(ele);
         }
     }
 }
