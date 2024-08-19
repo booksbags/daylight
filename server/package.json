@@ -1,0 +1,12 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --watch ./ --exec ts-node ./index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^20.14.9"
+  }
+}
