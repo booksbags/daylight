@@ -9,7 +9,7 @@ type ListviewType<V, T> = {
   port: string;//请求的端口
   dom: (data: V) => ReactElement;//接受数据并渲染
   precondition?: (data: T) => V[];// 预处理服务器返回的数据，得到需要渲染的数组
-  params: Record<string, string>;//需要携带的参数
+  params?: Record<string, string>;//需要携带的参数
   depend?: any[];//依赖项
 }
 
@@ -21,6 +21,8 @@ type RenderRefType = {
   listview: HTMLDivElement | null;
   totalHeight: number;
   translate:number;//偏移
+  itemCount:number;//展示的项数
+  hasMore:boolean;//是否还有数据
 }
 
 type DataType<V> = {
@@ -42,7 +44,9 @@ function Listview<V, T>({ port, dom, precondition, height, method = "GET", param
     panner: null,
     listview: null,
     totalHeight: 0,
-    translate:0
+    translate:0,
+    itemCount:10,
+    hasMore:true
   });
   const update = useUpdate();
   const {
@@ -52,6 +56,9 @@ function Listview<V, T>({ port, dom, precondition, height, method = "GET", param
   const getData = useCallback(() => {
     return request().then((data) => {
       const length = dataRef.current.length;
+      if(!data){
+        renderInfoRef.current.hasMore = false;
+      }
       if (precondition) {
         const empthData = precondition(data);
         dataRef.current.push(...empthData.map((item, index) => {
@@ -105,7 +112,7 @@ function Listview<V, T>({ port, dom, precondition, height, method = "GET", param
     if (container && renderDataRef.current[0]) {
       renderInfoRef.current.translate = getTranslate(index);
     }
-    const endIndex = index + 10;
+    const endIndex = index + renderInfoRef.current.itemCount;
     if (index != startIndex) {
       renderInfoRef.current = {
         ...renderInfoRef.current,
@@ -156,6 +163,11 @@ function Listview<V, T>({ port, dom, precondition, height, method = "GET", param
                     data.height = height;
                     if (index === renderDataRef.current.length - 1 && renderInfoRef.current["panner"] && height) {
                       renderInfoRef.current["panner"].style.height = `${renderInfoRef.current.totalHeight}px`;
+                      if(renderInfoRef.current.hasMore && renderInfoRef.current.totalHeight < renderInfoRef.current.listview!.getBoundingClientRect().height){
+                        renderInfoRef.current.endIndex += 10;
+                        renderInfoRef.current.itemCount += 10;
+                        getData();
+                      }
                     }
                   }
                 })

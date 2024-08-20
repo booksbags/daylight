@@ -11,12 +11,13 @@ const Test = () => {
       <Listview<string, string>
         height="70vh"
         port='/'
-        dom={(data)=>{
-            return <ItemStyle>{data}</ItemStyle>
-        }}
-        precondition={(data)=>{
-            return data.split("___");
-        }}
+        dom={(data) => {
+          return <ItemStyle>{data}</ItemStyle>
+        } }
+        precondition={(data) => {
+          if(!data)return [];
+          return data.split("___")
+        } }
       ></Listview>
     </TestStyle>
   )
