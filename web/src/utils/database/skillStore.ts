@@ -1,5 +1,3 @@
-
-
 let instance:SkillSotre|null;
 
 export class SkillSotre{

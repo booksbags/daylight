@@ -32,6 +32,7 @@ export async function request<T>({
         xml.addEventListener("readystatechange", () => {
             if (xml.readyState === 4) {
                 res(xml.responseText as T);
+                clearInterval(timer);
             }else if(xml.readyState === XMLHttpRequest.UNSENT && xml.status === 0){
                 Toast.show("网络连接超时");
                 rej("网络连接超时");
@@ -43,7 +44,7 @@ export async function request<T>({
         } else {
             xml.send(JSON.stringify(data));
         }
-        setTimeout(()=>{
+        const timer = setTimeout(()=>{
             xml.abort();
         },Math.max(expireTime, 3000))
     })
