@@ -9,6 +9,10 @@ const listData = [
         title: "日志",
         img: "",
         url: "/daily"
+    },{
+        title: "信息",
+        img: "",
+        url: "/bodyInfo"
     },
     {
         title: "js",

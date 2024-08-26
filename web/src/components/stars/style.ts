@@ -57,7 +57,7 @@ export const InnerStyle = styled.div`
             animation: moveSmallThree 2s infinite reverse;
         }
     }
-    --moveDis: 12px;
+    --moveDis: 1vw;
     @keyframes moveSmallOne{
         0%{
             transform: translateY(${-dis}vw);
