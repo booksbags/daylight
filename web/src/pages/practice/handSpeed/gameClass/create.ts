@@ -66,7 +66,8 @@ const value:SquareType[] = [
     '7',
     '8',
     '9',
-    ',',
+    ];
+const specialValue = [',',
     '.',
     '/',
     ';',
@@ -101,24 +102,31 @@ value.sort((a, b)=>Math.random() - 0.5)
 // 1s 生产五个方块
 export class Create{
     private _time?:NodeJS.Timeout;
+    private _value:SquareType[] = [];
+    private _init(){
+        this._value = [...value];
+    }
+    constructor(){
+        this._init();
+    }
     begin(){
         const store = SquareStore();
         for(let i = 0; i < config.createSpeed; i ++){
-            store.add(new Square(value.shift()))
+            store.add(new Square(this._value.shift()))
         }
         this._time = setInterval(()=>{
             for(let i = 0; i < config.createSpeed; i ++){
-                store.add(new Square(value.shift()))
+                store.add(new Square(this._value.shift()))
             }
         }, 1000);
     }
     stop(){
         this._time && clearInterval(this._time);
     }
-    static back(s:SquareType){
-        if(value.includes(s)){
+    back(s:SquareType){
+        if(this._value.includes(s)){
             throw new Error("逻辑错误");
         }
-        value.push(s);
+        this._value.push(s);
     }
 }

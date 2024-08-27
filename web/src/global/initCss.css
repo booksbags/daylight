@@ -28,3 +28,8 @@ button{
     color: white;
     cursor: pointer;
 }
+
+button:hover{
+    background-color: #afafaf;
+    color: #008c8c;
+}

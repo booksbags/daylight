@@ -1,7 +1,7 @@
 export const config = {
-    squareSize: 50,
+    squareSize: 70,
     moveSpeed: 75,
-    colNumber: 8,
-    rowNumber: 11,
-    createSpeed:5,//个/秒
+    colNumber: 6,
+    rowNumber: 10,
+    createSpeed:3,//个/秒
 }

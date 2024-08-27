@@ -4,7 +4,13 @@ import { single } from "@utils/proxy/single";
 import { config } from "./config";
 
 class SquareStore{
-    private _store:Square[][] = Array(config.colNumber).fill(0).map(()=>[]);
+    private _store:Square[][] = [];
+    private _init(){
+        this._store = Array(config.colNumber).fill(0).map(()=>[]);
+    }
+    constructor(){
+        this._init();
+    }
     add(square:Square){
         this._store[getInterRandom(0, this._store.length)].push(square);
     }
@@ -14,6 +20,9 @@ class SquareStore{
             pre.push(now.shift())
             return pre;
         },[]);
+    }
+    clear(){
+        this._init();
     }
 }
 

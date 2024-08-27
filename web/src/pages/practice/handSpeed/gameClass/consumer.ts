@@ -4,8 +4,9 @@ import squareStore from "./squareStore";
 import { Square } from "./squart";
 
 export class Consumer{
-    private _container:Square[][] = Array(config.colNumber).fill(0).map(()=>[]);
+    private _container:Square[][] = [];
     init(){
+        this._container = Array(config.colNumber).fill(0).map(()=>[]);
         this._container.forEach((item)=>{
             for(let i = 0; i < config.rowNumber; i ++){
                 item.push(new Square(undefined))
