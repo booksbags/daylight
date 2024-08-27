@@ -5,6 +5,7 @@ import Login from "@pages/login";
 import Daily from "@pages/daily";
 import Test from "@pages/test";
 import BodyInfo from "@pages/bodyInfo";
+import HandSpeed from "@pages/practice/handSpeed";
 
 function Router(){
    return useRoutes([
@@ -26,6 +27,9 @@ function Router(){
       },{
          path: "/bodyInfo",
          element: <BodyInfo/>
+      },{
+         path: "/practice",
+         element: <HandSpeed></HandSpeed>
       }
    ]);
 }
