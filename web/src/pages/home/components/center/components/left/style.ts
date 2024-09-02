@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { leftWidth } from "../common";
-import { mainColor } from "src/global/var";
+import { mainColor } from "@src/global/var";
 
 const LeftStyle = styled.div`
     width: ${leftWidth};

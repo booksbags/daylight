@@ -3,7 +3,7 @@ import { ClickInfoStyle, ControlStyle, HandSpeedStyle, IntroduceStyle, SquareSty
 import { Control } from './gameClass/control';
 import { useUpdate } from '@hooks/useUpdate';
 import { config } from './gameClass/config';
-import clickAudio from "../../../../public/audio/wordClick.mp3";
+import clickAudio from "@public/audio/wordClick.mp3";
 import { useNavigate } from 'react-router-dom';
 
 

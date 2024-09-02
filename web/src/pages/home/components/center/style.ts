@@ -5,6 +5,9 @@ const CenterStyle = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 0 2em 0;
+    &>div{
+        margin: 0 1em;
+    }
 `;
 
 export {

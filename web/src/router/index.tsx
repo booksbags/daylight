@@ -7,6 +7,7 @@ import Test from "@pages/test";
 import BodyInfo from "@pages/bodyInfo";
 import HandSpeed from "@pages/practice/handSpeed";
 import Concentration from "@pages/practice/concentration";
+import Skill from "@pages/home/components/skill";
 
 function Router(){
    return useRoutes([
@@ -34,6 +35,9 @@ function Router(){
       },{
          path: "/practice/concentration",
          element: <Concentration></Concentration>
+      },{
+         path: "/home/skill",
+         element: <Skill/>
       }
    ]);
 }

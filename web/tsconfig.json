@@ -5,6 +5,7 @@
         "moduleResolution": "Node",
         "jsx": "react",
         "lib": ["DOM"],
+        "resolveJsonModule": true,
         "allowSyntheticDefaultImports": true,
         "strict": true,
         "baseUrl": "./",
@@ -13,7 +14,9 @@
             "@components/*": ["src/components/*"],
             "@utils/*":["src/utils/*"],
             "@hooks/*":["src/hooks/*"],
-            "@style/*":["src/style/*"]
+            "@style/*":["src/style/*"],
+            "@public/*":["public/*"],
+            "@src/*":["src/*"]
         }
     },
     "include": ["./src/**/*"]

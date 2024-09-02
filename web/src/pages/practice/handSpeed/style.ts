@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 export const HandSpeedStyle = styled.div`
-    overflow:hidden;
-    width: 100vw;
-    height: 100vh;
-    background-color: #333;
+    overflow: hidden;
     .col{
         display: flex;
         flex-wrap: wrap;

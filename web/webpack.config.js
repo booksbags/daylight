@@ -12,7 +12,8 @@ module.exports = {
             "@utils":path.resolve(__dirname, "./src/utils"),
             "@hooks":path.resolve(__dirname, "./src/hooks"),
             "@style":path.resolve(__dirname, "./src/style"),
-            "src":path.resolve(__dirname, "./src"),
+            "@src":path.resolve(__dirname, "./src"),
+            "@public":path.resolve(__dirname, "./public")
         }
     },
     output:{
@@ -30,6 +31,9 @@ module.exports = {
                 use:["style-loader", "css-loader"]
             },{
                 test:/\.mp3$/,
+                use:["file-loader"]
+            },{
+                test: /\.((jpg)|(png))$/,
                 use:["file-loader"]
             }
         ]

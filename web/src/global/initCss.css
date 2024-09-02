@@ -1,8 +1,11 @@
 *{
     box-sizing: border-box;
+    user-select: none;
+    color: white;
 }
 :root{
     font-family:"consolas";
+    background-color: #030303;
 }
 body{
     margin: 0px;

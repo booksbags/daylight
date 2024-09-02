@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import { BodyInfoStyle } from './style'
+import { AbilityItemStyle, AbilityStyle, BodyInfoStyle } from './style'
+import { useNavigate } from 'react-router-dom';
 
 type Coordinate = {
     x:number;
@@ -12,9 +13,9 @@ type Coordinate = {
 /**
  * 从六个维度描述自身，都是相对的，每一次都是上一次的1.2倍
  * 体重（健康）
- * 专注度
- * 记忆力
- * 手速
+ * 专注度 findMe
+ * 记忆力 
+ * 手速 打字
  * 金钱
  * 自律
  */
@@ -22,6 +23,16 @@ type Coordinate = {
 const info = [0.3, 0.6, 0.4, 0.9, 0.1, 0.4];
 
 const BodyInfo = () => {
+    const abilities = [
+        {
+            text:"手速",
+            url: "/practice/handSpeed"
+        },{
+            text: "专注度",
+            url: "practice/concentration"
+        }
+    ];
+    const navigator = useNavigate();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const canvasSize = window.innerHeight * 0.7;
     useEffect(() => {
@@ -123,6 +134,19 @@ const BodyInfo = () => {
                 width={canvasSize+"px"}
                 height={canvasSize+"px"}
             ></canvas>
+            <AbilityStyle>
+                {
+                    abilities.map((item)=>{
+                        return (
+                            <AbilityItemStyle
+                                onClick={()=>navigator(item.url)}
+                            >
+                                {item.text}
+                            </AbilityItemStyle>
+                        )
+                    })
+                }
+            </AbilityStyle>
         </BodyInfoStyle>
     )
 }

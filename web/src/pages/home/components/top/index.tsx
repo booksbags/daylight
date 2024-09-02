@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, TopStyle } from './style'
-import { mainColor } from 'src/global/var'
+import { mainColor } from '@src/global/var'
 
 const Top = () => {
   return (

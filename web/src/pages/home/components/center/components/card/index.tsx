@@ -1,6 +1,7 @@
 import React from 'react'
 import { CardStyle } from './style'
 import { useNavigate } from 'react-router-dom';
+import coverImg from "@public/pic/mds.jpg"
 
 
 type CardProp = {
@@ -18,7 +19,7 @@ const Card = ({title, img, url}:CardProp) => {
       }
     >
       <h5>{title}</h5>
-      <img src={img ? img :"https://th.bing.com/th/id/OIP.fZWi-qLKVzletfZE1v744wHaNK?rs=1&pid=ImgDetMain"}/>
+      <img src={img ? img :coverImg}/>
     </CardStyle>
   )
 }

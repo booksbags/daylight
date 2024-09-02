@@ -1,5 +1,5 @@
 import { center } from "@style/center";
-import { mainColor } from "src/global/var";
+import { mainColor } from "@src/global/var";
 import styled from "styled-components";
 const LoginStyle = styled.div`
     height: 100vh;

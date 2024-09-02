@@ -1,5 +1,7 @@
-import { mainColor } from "src/global/var";
+import { mainColor } from "@src/global/var";
 import styled from "styled-components";
+
+
 
 const CardStyle = styled.div`
     --lineCount:2;
@@ -11,7 +13,7 @@ const CardStyle = styled.div`
     cursor: pointer;
     padding: 1em;
     min-width: 200px;
-    max-width: 300;
+    max-width: 200px;
     h5{
         text-align: center;
         font-size: 16px;
