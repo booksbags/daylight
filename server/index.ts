@@ -8,6 +8,10 @@ function cors(res:http.ServerResponse<http.IncomingMessage>){
 let i = 0;
 
 const server = http.createServer((req, res)=>{
+    const socket = req.socket;
+    socket.on("close", ()=>{
+        console.log("socket 连接断开");
+    });
     cors(res);
     const data = virtualData();
     
@@ -19,6 +23,14 @@ const server = http.createServer((req, res)=>{
     i += 1;
 });
 
+server.on("connection", (socket)=>{
+    console.log("tcp 连接建立");
+});
+
+server.close(()=>{
+    console.log("连接断开");
+})
+
 server.listen(8080, ()=>{
-    console.log("服务器启动");
+    console.log("服务器启动， 端口8080");
 })

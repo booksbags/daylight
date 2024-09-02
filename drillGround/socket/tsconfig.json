@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "CommonJS",
+        "lib": ["ESNext"],
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["./**/*.ts"]
+}
