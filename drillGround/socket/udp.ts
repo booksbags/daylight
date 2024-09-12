@@ -32,7 +32,7 @@ server.on('error', (err) => {
 });
 
 // 绑定服务器到特定的端口和IP地址
-const PORT = 41234;
+const PORT = 65530;
 const HOST = '192.168.1.3';
 
 server.bind(PORT, HOST);

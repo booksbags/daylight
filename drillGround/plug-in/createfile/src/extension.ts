@@ -27,7 +27,6 @@ export function activate(context: vscode.ExtensionContext) {
 					let contentStr = template[fileName]
 					Object.keys(alias).forEach(item=>{
 						let dirname = aliasMap.has(alias[item]) ? aliasMap.get(alias[item])! : alias[item];
-						console.log("item", item, dirname)
 						contentStr = contentStr.replace(new RegExp(item, "g"), dirname);
 					});
 					return contentStr;

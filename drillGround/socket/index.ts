@@ -3,6 +3,7 @@ import {createServer} from "node:net";
 const server = createServer((socket)=>{
     socket.on("data", (data)=>{
         console.log(data.toString("utf-8"))
+        socket.write(JSON.stringify({type:"if", value:"WLAN"}));
     })
     socket.on("connect", ()=>{
         console.log("连接建立");
@@ -13,6 +14,6 @@ const server = createServer((socket)=>{
     });
 });
 
-server.listen(8089, ()=>{
-    console.log("服务器启动，端口：8089");
+server.listen(65530, ()=>{
+    console.log("65530");
 })
