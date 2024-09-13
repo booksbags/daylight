@@ -19,9 +19,10 @@ class Observer:
     def start(self, ifName):
         if(not self.__status):return
         self.__status = False
+        print("开始抓包", ifName)
         MyThread(lambda:sniff(
             iface=ifName, 
             prn=self.__prn, 
-            stop__filter=lambda x:self.__ctl(self.__status, x), 
+            stop_filter=lambda x:self.__ctl(self.__status, x), 
             filter=self.__filter
         )).start()

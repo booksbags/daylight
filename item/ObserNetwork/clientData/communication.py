@@ -11,11 +11,11 @@ class Communication:
         self.__commandDict = commandDict
     
     def addCommand(self, name, cb):
-        self.__commandDict.update(name, cb)
+        self.__commandDict[name] = cb
 
     def recv(self):
         response = json.loads(self.__socket.recv(1024))
-        command = self.commandDict.get(response["type"])
+        command = self.__commandDict.get(response["type"])
         if(not command):
             print("无效指令")
         else:
@@ -27,7 +27,11 @@ class Communication:
         except:
             return print("连接失败")
         print("连接成功")
-        MyThread(lambda:self.recv())
+        self.__status = True
+        def loopRecv():
+            while True:
+                self.recv()
+        MyThread(loopRecv).start()
     
     def send(self, msg:str|dict):
         if self.__status:
@@ -38,7 +42,7 @@ class Communication:
                 sendMsg = json.dumps(msg)
             else:
                 return print("类型错误")
-            self.__socket.send(sendMsg)
+            self.__socket.send(sendMsg.encode("utf-8"))
         else:
             print("请先连接网络")
 

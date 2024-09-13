@@ -15,7 +15,7 @@ if __name__ == "__main__":
             "value": raw(sendMsg).hex()
         })
 
-    def ctl(status):
+    def ctl(status, bag):
         return status
     
     observer = Observer({
