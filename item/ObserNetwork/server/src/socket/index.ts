@@ -20,7 +20,6 @@ export function socketLogic(socket: net.Socket, d: string) {
         }else{
             data = JSON.parse(d);
         }
-        console.log(data.length, Buffer.from(data.value).length)
         if(Buffer.from(data.value).length > data.length){
             process.exit()
         }

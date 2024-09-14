@@ -2,12 +2,13 @@ import net from "net"
 import { socketLogic } from "./socket";
 import { returnMsgType } from "./utils";
 import { htmlLogic } from "./web";
+import "./database/index"
 
 const server = net.createServer();
 
 const logicMap:Map<string, (socket:net.Socket, data:string)=>void> = new Map();
 logicMap.set("json", socketLogic);
-logicMap.set("html", htmlLogic)
+logicMap.set("html", htmlLogic);
 
 server.on("connection", (socket)=>{
     let sign:"json"|"html"|null = null;
