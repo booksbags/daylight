@@ -7,7 +7,7 @@ export type RequestType = {
     expireTime?:number,
 }
 
-const path = "http://127.0.0.1:8080"
+const path = "http://192.168.1.3:65530"
 /**
  * 发起网络请求
  * undefined会被转化为null传递给服务器
@@ -27,7 +27,9 @@ export async function request<T>({
                 paramList.push(`${key}=${data[key] ?? null}`);
             });
             params = paramList.join("&");
-            sendUrl += `?${params}`;
+            if(params){
+                sendUrl += `?${params}`;
+            }
         }
         xml.addEventListener("readystatechange", () => {
             if (xml.readyState === 4) {

@@ -21,11 +21,12 @@ if __name__ == "__main__":
             return
         print("发送报文")
         s.send(formatReq("bag", raw(bag["IP"]).hex()))
-
+    # 开始抓包
     def beginCatch():
         if res["type"] == "if":
             print("开始抓包")
             catchBag(res["value"], cb, lambda x:close)
+    # 处理通讯逻辑
     def listen():
         global close
         while True:
@@ -37,6 +38,7 @@ if __name__ == "__main__":
                 print("重新开始")
                 close = False
                 MyThread(1, "begin", lambda :catchBag(res["value"], cb, lambda x:close)).start()
+    
     MyThread(1, "begin", beginCatch).start()
     MyThread(2, "server", listen).start()
 

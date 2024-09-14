@@ -45,7 +45,14 @@ module.exports = {
     ],
     devServer:{
         port:8089,
-        historyApiFallback:true
+        historyApiFallback:true,
+        proxy:[{
+            context:["/api"],
+            target: "http://192.168.1.3:65530",
+            pathRewrite:{
+                "^/api":""
+            }
+        }]
     },
     stats: "minimal"
 }

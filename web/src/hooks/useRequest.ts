@@ -3,20 +3,21 @@ import { useEffect, useRef, useState } from "react";
 import { useUpdate } from "./useUpdate";
 
 interface UseRequestType extends RequestType{
-    expireTime?:number
+    expireTime?:number,
+    init?:(data:any)=>any
 }
 
 type StateType = {
     loading:boolean,
     data:any,
-    error:null|string
+    error:null|string,
 }
 
 /**
  * 请求外部数据
  */
 export function useRequest({
-    url, method="GET", data, expireTime=300
+    url, method="GET", data, expireTime=300, init=(data)=>data
 }:UseRequestType, depend:any[]){
     const [state, setState] = useState<StateType>({
         loading:true,
@@ -24,10 +25,11 @@ export function useRequest({
         error:null
     });
     useEffect(()=>{
-        request({method, url, data}).then((data)=>{
+        request<string>({method, url, data}).then((data)=>{
+            console.log(data)
             setState({
                 loading: false,
-                data:data,
+                data:init(JSON.parse(data)),
                 error:null
             })
         }).catch((e)=>{

@@ -7,7 +7,7 @@ router.add("/networkDetail", {
         const params = v.params;
         const sign = params.get("sign");
         if(sign == undefined)socket.write("无效的sign");
-        runMysql(`select * from net_info where sign="${sign}" limit 20`).then((data)=>{
+        runMysql(`select * from net_info where sign="${sign}"`).then((data)=>{
             socket.write(responseMsg(JSON.stringify(data)))
         })
     }

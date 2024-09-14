@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { AbilityItemStyle, AbilityStyle, BodyInfoStyle } from './style'
+import { AbilityItemStyle, AbilityStyle, BodyInfoStyle, LiveItemStyle, LiveStyle } from './style'
 import { useNavigate } from 'react-router-dom';
 
 type Coordinate = {
@@ -32,6 +32,12 @@ const BodyInfo = () => {
             url: "practice/concentration"
         }
     ];
+    const live = [
+        {
+            text: "流量使用",
+            url: "/networkUse"
+        }
+    ]
     const navigator = useNavigate();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const canvasSize = window.innerHeight * 0.7;
@@ -129,6 +135,19 @@ const BodyInfo = () => {
     }, []);
     return (
         <BodyInfoStyle>
+            <LiveStyle>
+                {
+                    live.map((item)=>{
+                        return (
+                            <LiveItemStyle
+                                onClick={()=>{
+                                    navigator(item.url)
+                                }}
+                            >{item.text}</LiveItemStyle>
+                        )
+                    })
+                }
+            </LiveStyle>
             <canvas
                 ref={canvasRef}
                 width={canvasSize+"px"}

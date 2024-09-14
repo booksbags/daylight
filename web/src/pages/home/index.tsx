@@ -1,5 +1,5 @@
 import React from 'react'
-import { BottomStyle, HomeStyle, LeftStyle, RightStyle, TopStyle } from './style'
+import { BottomStyle, CenterStyle, HomeStyle, LeftStyle, RightStyle, TopStyle } from './style'
 import Top from './components/top'
 import Center from './components/center'
 import { useNavigate } from 'react-router-dom'
@@ -15,7 +15,7 @@ const Home = () => {
         >
           生活
         </LeftStyle>
-        <RightStyle>
+        <CenterStyle>
           <TopStyle
             onClick={()=>navigator("/home/skill")}
           >
@@ -24,6 +24,11 @@ const Home = () => {
           <BottomStyle>
             精神
           </BottomStyle>
+        </CenterStyle>
+        <RightStyle
+          onClick={()=>navigator("/experience")}
+        >
+          经验
         </RightStyle>
       </main>
     </HomeStyle>

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import liftImg from "@public/pic/life.jpg"
 import jsImg from "@public/pic/js.jpg";
-import skillImg from "@public/pic/skill.jpg"
+import skillImg from "@public/pic/skill.jpg";
+import hdImg from "@public/pic/hd.jpg";
 
 const CommonStyle = styled.div`
     &:hover{
@@ -34,7 +35,7 @@ const LeftStyle = styled(CommonStyle)`
     border-radius: 10px;
     cursor: pointer;
 `
-const RightStyle = styled.div`
+const CenterStyle = styled.div`
     width: 50vw;
     height: 70vh;
     max-width: 500px;
@@ -62,10 +63,17 @@ const TopStyle = styled(CommonStyle)`
 const BottomStyle = styled(CommonStyle)`
     background-image:url(${jsImg});
 `;
+
+const RightStyle = styled(LeftStyle)`
+    margin: 0px;
+    margin-left: 7vh;
+    background-image:url(${hdImg});
+`;
 export {
     HomeStyle,
     LeftStyle,
-    RightStyle,
+    CenterStyle,
     TopStyle,
-    BottomStyle
+    BottomStyle,
+    RightStyle
 }

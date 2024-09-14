@@ -27,3 +27,4 @@
 26. JSON.stringify存在什么问题，第二个参数是干嘛的？
 27. 如何一个对象具有toJSON方法会对JSON.parse有什么影响？
 28. valueOf和toString的区别是什么？
+29. 如何设置toString的返回值？

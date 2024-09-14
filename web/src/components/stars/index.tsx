@@ -3,7 +3,7 @@ import {InnerStyle, OuterStyle, StarsStyle } from './style'
 import Content from './component/initConent';
 
 function useShowContent():[boolean, (props:boolean)=>void]{
-  const [show, setShow] = useState<boolean>(true);
+  const [show, setShow] = useState<boolean>(false);
   return [show, setShow];
 }
 

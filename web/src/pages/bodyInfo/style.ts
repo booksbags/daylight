@@ -7,7 +7,7 @@ export const BodyInfoStyle = styled.div`
         left: 50%;
         transform: translate(-50%, -50%);
         border: 1px solid black;
-        background-color: #6639A6;
+        background-color: #6fe7dd;
     }
 `;
 
@@ -30,4 +30,13 @@ export const AbilityItemStyle = styled.div`
     margin: 1em auto;
     background-color: #3490de;
     cursor: pointer;
+`;
+
+export const LiveStyle = styled(AbilityStyle)`
+    right: none;
+    left: 10%;
+`;
+
+export const LiveItemStyle = styled(AbilityItemStyle)`
+    
 `;
