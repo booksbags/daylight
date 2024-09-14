@@ -1,7 +1,6 @@
 import { runMysql } from "../../database";
 import { getSignFromSocket } from "../utils";
 import { router } from "./router";
-import fs from "node:fs/promises";
 let preDataSign:string|null = null;
 let addData = "";
 router.set("msg", (socket, value)=>{
@@ -15,9 +14,7 @@ router.set("msg", (socket, value)=>{
         addData += value+";";
     }else{
         preDataSign = dataSign;
-        runMysql(`insert into net_info(sign, time, content) values("${sign}", "${timestamp}", "${addData}")`).then((data)=>{
-            console.log("存入数据块",sign, timestamp);
-        });
+        runMysql(`insert into net_info(sign, time, content) values("${sign}", "${timestamp}", "${addData}")`);
         addData = value + ";"
     }
 

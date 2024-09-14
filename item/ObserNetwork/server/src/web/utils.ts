@@ -1,3 +1,15 @@
+function analyzeGetPath(path:string){
+    const [realPath, params] = path.split("?");
+    const paramsMap:Map<string, string> = new Map();
+    params?.split("&").forEach((item)=>{
+        const [key, value] = item.split("=");
+        paramsMap.set(key.trim(), value.trim())
+    });
+    return {
+        path:realPath,
+        params: paramsMap
+    }
+}
 /**
  * 分析请求报文
  */
@@ -14,9 +26,11 @@ export function analyzeReqMsg(msg:string){
             headMap.set(key, [value]);
         }
     });
+    const p = analyzeGetPath(requestPath);
     return {
         requestMethod,
-        requestPath,
+        requestPath:p.path,
+        params:p.params,
         protocol,
         requestHead:headMap,
         requestBody:body
