@@ -1,3 +1,4 @@
+import json
 from communication import Communication
 from observer import Observer
 from scapy.all import raw
@@ -10,9 +11,12 @@ if __name__ == "__main__":
             sendMsg = bag["IP"]
         except:
             return;
+        data = raw(sendMsg).hex()
+        print("data is ", data[-10:-1], data.__len__())
         communication.send({
             "type":"msg",
-            "value": raw(sendMsg).hex()
+            "length":data.__len__(),
+            "value": data,
         })
 
     def ctl(status, bag):

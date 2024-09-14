@@ -1,0 +1,13 @@
+net.Socket 获取客服端的ip,端口,协议：socket.remoteAddress, socket.remotePort, socket.remoteFamily
+
+http 响应报文一定要有content-length 不然客服端不知道响应体是否接受完成，客服端的接口就会一直得到不数据
+
+webpack-dev-server 设置代理时，如果响应体中包含中文，webpack-dev-server会报错
+
+content-length 设置的是响应体占据的字节数，而不是字符的数量
+
+net模块同时和http协议和自定义协议通信，那么如何判断当前的tcp报文属于哪一个socket
+
+一个tcp报文可能携带两条数据
+
+一条数据可能需要多个tcp报文来传输，所以需要一个字段来标识这个数据的长度，不然无法拼接成完整的报文
