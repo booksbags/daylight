@@ -33,7 +33,7 @@ class Communication:
                 self.__status = False
                 self.onConnectionReset()
             try:
-                time.sleep(3)
+                time.sleep(2)
                 self.__connect()
                 return
             except ConnectionResetError:
