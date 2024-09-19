@@ -57,6 +57,26 @@
 25. 剩余参数的位置有什么要求？可以有多个剩余参数吗？
 26. 函数声明被小括号包裹以后，会发生什么？答：会被当做函数表达式，函数不会挂载到当前作用域中，自然也就没有变量提升，在当前作用域中，函数名称没有任何作用。
 27. 立即执行函数（IIFE）是什么？答：就是一个函数在被创建出来以后就立即调用，主要用于创建局部作用域。
+### promise
+1. 一个promise可以多次调用then和catch吗？调用以后状态如何判断？
+	可以，每一个then和catch都有自己的Promise不会共享
+2. 创建Promise是resolve一个promise或者具有then方法的对象会发生什么？
+	回调用Promise的then传入自己的resolve,reject,等它来完善自身。
+3. 创建Promise是reject一个promise或者具有then方法的对象会发生什么？
+	会直接将Promise的状态置为拒觉，值就是传入的Promise或者对象
+4. then方法返回一个promise会发生什么？
+	仍然会返回新的Promise，只不过Promise的状态和数据都和返回的Promise一致
+5. 如何判断一个对象是否为promise？
+6. await 后面不是promise怎么处理？
+7. await 后面跟上具有then方法的对象会发生什么？
+	等效于 Promise.resolve({then(res, rej){}})
+8. Promise.resolve的表现形式有哪些？
+9. Promise.reject的表现形式？
+
+### 设计
+1. 弹窗怎么实现？需要解决哪些问题？怎么解决？
+	1. 如何避免被其他元素遮挡？
+	2. 多次弹窗怎么处理？
 
 
 
