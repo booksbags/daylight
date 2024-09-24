@@ -6,8 +6,9 @@ const tempMap:Map<string, ()=>string> = new Map();
 
 const aliasMap:Map<string, string> = new Map(); 
 export function activate(context: vscode.ExtensionContext) {
-	const config = vscode.workspace.getConfiguration("createFormateFile");
+	const config = vscode.workspace.getConfiguration("createFormatFile");
 	function isTargetExtension(extension:string):boolean{
+		console.log("extension", config.get("extension"))
 		return `.${extension}` === config.get("extension");
 	}
 	const template = config.get("template") as Record<string, string>;
